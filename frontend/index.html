@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+     <nav class="navbar">
+      <div class="container">
+        <h1 class="logo">Mahalakshmi V</h1>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <section id="about" class="section">
+    <div class="container about-content">
+      <div class="about-image">
+        <img src="profile.jpeg" alt="Profile Photo" class="profile-photo">
+      </div>
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p>I am a Full-Stack Developer with a specialized passion for Android development and Artificial Intelligence. I thrive at the intersection of robust backend architecture and intuitive mobile experiences. With a background in building multi-role applications and integrating AI models, I enjoy transforming complex problems into scalable digital solutions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section bg-light">
+    <div class="container">
+      <h2>Technical Skills</h2>
+      
+      <div class="skills-tabs">
+        <div class="tab-buttons">
+          <button class="tab-btn active" data-tab="hard">Hard Skills</button>
+          <button class="tab-btn" data-tab="soft">Soft Skills</button>
+          <button class="tab-btn" data-tab="adaptive">Adaptive Skills</button>
+        </div>
+        
+        <div class="tab-content">
+          <div id="hard" class="tab-pane active">
+            <div class="skill-item">Kotlin / Android</div>
+            <div class="skill-item">Python (ML/AI)</div>
+            <div class="skill-item">HTML/CSS/JS</div>
+            <div class="skill-item">ASP.NET</div>
+            <div class="skill-item">Firebase</div>
+            <div class="skill-item">MySQL</div>
+            <div class="skill-item">C#/C++</div>
+            <div class="skill-item">Git/GitHub</div>
+          </div>
+          
+          <div id="soft" class="tab-pane">
+            <div class="skill-item">Communication</div>
+            <div class="skill-item">Problem-Solving</div>
+            <div class="skill-item">Collaboration</div>
+            <div class="skill-item">Technical Documentation</div>
+            <div class="skill-item">Team Leadership</div>
+            <div class="skill-item">Project Management</div>
+          </div>
+          
+          <div id="adaptive" class="tab-pane">
+            <div class="skill-item">Self-Learning</div>
+            <div class="skill-item">Critical Thinking</div>
+            <div class="skill-item">Time Management</div>
+            <div class="skill-item">Adaptability</div>
+            <div class="skill-item">Continuous Learning</div>
+            <div class="skill-item">Research Skills</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="projects-grid" id="projectsGrid">
+        <div class="project-card">
+          <img src="images/tailor-app.jpg" alt="Tailor Service Management App" class="project-image">
+          <h3>Tailor Service Management App</h3>
+          <p>Android application for managing tailor-customer interactions with real-time updates and order tracking.</p>
+          <div class="tech-stack">
+            <span class="tech kotlin">Kotlin</span>
+            <span class="tech firebase">Firebase</span>
+            <span class="tech android-studio">Android Studio</span>
+          </div>
+          <a href="https://github.com/lakshmi9743/tailorservice.git" class="project-link" target="_blank" rel="noopener">GitHub Repository</a>
+        </div>
+        <div class="project-card">
+          <img src="images/grievance-tracker.png" alt="Grievance Tracker" class="project-image">
+          <h3>Grievance Tracker</h3>
+          <p>Web-based system providing a transparent bridge between users and administrative departments for efficient complaint management.</p>
+          <div class="tech-stack">
+            <span class="tech mvc">MVC Architecture</span>
+            <span class="tech csharp">C#.NET</span>
+            <span class="tech mysql">MySQL</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="images/quiz-website.png" alt="Quiz Website" class="project-image">
+          <h3>Quiz Website</h3>
+          <p>Interactive quiz platform with user authentication, dynamic question management, and real-time score tracking.</p>
+          <div class="tech-stack">
+            <span class="tech php">PHP</span>
+            <span class="tech mysql">MySQL</span>
+            <span class="tech html-css">HTML/CSS</span>
+            <span class="tech javascript">JavaScript</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="images/game.png" alt="Puzzle Game" class="project-image">
+          <h3>Puzzle Game</h3>
+          <p>Engaging puzzle game with dynamic difficulty levels and cloud-based leaderboard integration.</p>
+          <div class="tech-stack">
+            <span class="tech firebase-studio">Firebase Studio</span>
+            <span class="tech game-dev">Game Development</span>
+            <span class="tech cloud">Cloud Services</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="section">
+    <div class="container">
+      <h2>Experience</h2>
+      <div class="experience-list">
+        <div class="experience-item">
+          <div class="exp-header">
+            <h3>Generative AI Intern @ Prodigy Infotech</h3>
+            <span class="exp-date">May 1, 2026 - May 31, 2026</span>
+          </div>
+          <p class="exp-company">Prodigy Infotech</p>
+          <p class="exp-description">Worked on generative AI tasks, model evaluation, and AI-driven solution development to support product features.</p>
+        </div>
+        <div class="experience-item">
+          <div class="exp-header">
+            <h3>Full Stack Development Intern @ Thiranex</h3>
+            <span class="exp-date">May 15, 2026 - April 15, 2026</span>
+          </div>
+          <p class="exp-company">Thiranex</p>
+          <p class="exp-description">Contributed to full stack development, building web functionality and maintaining backend services for production readiness.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications" class="section bg-light">
+    <div class="container">
+      <h2>Certifications</h2>
+      <ul class="cert-list">
+        <li><strong>Generative AI for All</strong> - Infosys Springboard</li>
+        <li><strong>Basics of Python</strong> - Infosys Springboard</li>
+        <li><strong>Artificial Intelligence for All</strong> - Infosys Springboard</li>
+        <li><strong>AI Fundamentals</strong> - IBM</li>
+        <li><strong>Customer Engagement</strong> - IBM</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Get In Touch</h2>
+      <p>Feel free to reach out for collaborations or just a friendly hello!</p>
+      
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <h3>Contact Details</h3>
+          <div class="info-item">
+            <strong>Email:</strong>
+            <a href="mailto:mahalakshmiv088@gmail.com">mahalakshmiv088@gmail.com</a>
+          </div>
+          <div class="info-item">
+            <strong>Phone:</strong>
+            <a href="tel:+919743461425">+91 9743461425</a>
+          </div>
+          <div class="info-item">
+            <strong>LinkedIn:</strong>
+            <a href="https://www.linkedin.com/in/mahalakshmi-v-560a67257/?skipRedirect=true" target="_blank" rel="noopener">linkedin.com/in/mahalakshmi-v-560a67257</a>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="adminLogin" class="section bg-light">
+    <div class="container">
+      <h2>Admin Login</h2>
+      <p>Only you should be able to manage projects. Enter the admin password to reveal the project editor.</p>
+      <form class="contact-form" id="adminLoginForm">
+        <div class="form-group">
+          <label for="adminPassword">Admin Password</label>
+          <input type="password" id="adminPassword" name="adminPassword" required>
+        </div>
+        <button type="submit" class="btn-primary" id="adminLoginButton">Login</button>
+        <p id="adminLoginStatus" class="admin-status"></p>
+      </form>
+    </div>
+  </section>
+
+  <section id="admin" class="section bg-light hidden">
+    <div class="container">
+      <h2>Add New Project</h2>
+      <p>Fill in the details below to add a project to your portfolio. Use the file name from <code>frontend/images/</code> for the image field.</p>
+      <form class="contact-form" id="projectForm">
+        <div class="form-group">
+          <label for="projectTitle">Project Title</label>
+          <input type="text" id="projectTitle" name="projectTitle" required>
+        </div>
+        <div class="form-group">
+          <label for="projectDescription">Description</label>
+          <textarea id="projectDescription" name="projectDescription" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="projectTech">Tech Stack</label>
+          <input type="text" id="projectTech" name="projectTech" placeholder="React, Node.js, MongoDB" required>
+        </div>
+        <div class="form-group">
+          <label for="projectGithub">GitHub Link</label>
+          <input type="url" id="projectGithub" name="projectGithub">
+        </div>
+        <div class="form-group">
+          <label for="projectImage">Image Filename</label>
+          <input type="text" id="projectImage" name="projectImage" placeholder="images/your-image.png">
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn-primary" id="projectSubmitButton">Add Project</button>
+          <button type="button" class="btn-secondary hidden" id="projectCancelButton">Cancel Edit</button>
+        </div>
+      </form>
+      <div class="admin-projects">
+        <h3>Your Added Projects</h3>
+        <div id="adminProjectList" class="projects-grid"></div>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
