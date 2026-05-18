@@ -159,7 +159,8 @@ app.delete('/api/projects/:id', requireAdminAuth, async (req, res) => {
   }
 });
 
-const frontendPath = path.join(__dirname, '../frontend');
+// REPLACE YOUR FRONTEND STATIC PATH BLOCK WITH THIS:
+const frontendPath = path.resolve(__dirname, 'frontend');
 app.use(express.static(frontendPath));
 
 app.use((req, res, next) => {
@@ -168,11 +169,15 @@ app.use((req, res, next) => {
   }
   res.sendFile(path.join(frontendPath, 'index.html'), (err) => {
     if (err) {
+      // This will log the exact location the server is trying to look into
+      console.error("❌ Failed to serve index.html from path:", path.join(frontendPath, 'index.html'));
       next(err);
     }
   });
 });
 
+// TO THIS:
+// CHANGE THIS:
 // TO THIS:
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Server running on port ${PORT}`);
