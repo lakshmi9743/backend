@@ -122,6 +122,9 @@ function startEditProject(project) {
   document.getElementById('projectImage').value = project.image || '';
   projectSubmitButton.textContent = 'Save Changes';
   projectCancelButton.classList.remove('hidden');
+
+  // Smoothly scroll to the form at the top of the admin panel
+  document.getElementById('projectForm').scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 function setAdminToken(token) {
