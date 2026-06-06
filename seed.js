@@ -14,6 +14,7 @@ mongoose.connect(MONGODB_URI)
       description: String,
       techStack: [String],
       githubLink: String,
+      liveLink: String,
       image: String
     }));
 
@@ -23,6 +24,7 @@ mongoose.connect(MONGODB_URI)
         description: 'Android application for managing tailor-customer interactions with real-time updates and order tracking.',
         techStack: ['Kotlin', 'Firebase', 'Android Studio'],
         githubLink: 'https://github.com/lakshmi9743/tailorservice.git',
+        liveLink: '',
         image: 'images/tailor-app.jpg'
       },
       {
@@ -30,6 +32,7 @@ mongoose.connect(MONGODB_URI)
         description: 'Web-based system providing a transparent bridge between users and administrative departments for efficient complaint management.',
         techStack: ['MVC Architecture', 'C#.NET', 'MySQL'],
         githubLink: '',
+        liveLink: '',
         image: 'images/grievance-tracker.png'
       },
       {
@@ -37,6 +40,7 @@ mongoose.connect(MONGODB_URI)
         description: 'Interactive quiz platform with user authentication, dynamic question management, and real-time score tracking.',
         techStack: ['PHP', 'MySQL', 'HTML/CSS', 'JavaScript'],
         githubLink: '',
+        liveLink: '',
         image: 'images/quiz-website.png'
       },
       {
@@ -44,6 +48,7 @@ mongoose.connect(MONGODB_URI)
         description: 'Engaging puzzle game with dynamic difficulty levels and cloud-based leaderboard integration.',
         techStack: ['Firebase', 'Game Development', 'Cloud Services'],
         githubLink: '',
+        liveLink: '',
         image: 'images/game.png'
       }
     ];

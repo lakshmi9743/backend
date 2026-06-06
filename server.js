@@ -29,6 +29,7 @@ mongoose.connect(MONGODB_URI)
             description: 'Android application for managing tailor-customer interactions with real-time updates and order tracking.',
             techStack: ['Kotlin', 'Firebase', 'Android Studio'],
             githubLink: 'https://github.com/lakshmi9743/tailorservice.git',
+            liveLink: '',
             image: 'images/tailor-app.jpg'
           },
           {
@@ -36,6 +37,7 @@ mongoose.connect(MONGODB_URI)
             description: 'Web-based system providing a transparent bridge between users and administrative departments for efficient complaint management.',
             techStack: ['MVC Architecture', 'C#.NET', 'MySQL'],
             githubLink: '',
+            liveLink: '',
             image: 'images/grievance-tracker.png'
           },
           {
@@ -43,6 +45,7 @@ mongoose.connect(MONGODB_URI)
             description: 'Interactive quiz platform with user authentication, dynamic question management, and real-time score tracking.',
             techStack: ['PHP', 'MySQL', 'HTML/CSS', 'JavaScript'],
             githubLink: '',
+            liveLink: '',
             image: 'images/quiz-website.png'
           },
           {
@@ -50,6 +53,7 @@ mongoose.connect(MONGODB_URI)
             description: 'Engaging puzzle game with dynamic difficulty levels and cloud-based leaderboard integration.',
             techStack: ['Firebase', 'Game Development', 'Cloud Services'],
             githubLink: '',
+            liveLink: '',
             image: 'images/game.png'
           }
         ];
@@ -67,6 +71,7 @@ const projectSchema = new mongoose.Schema({
   description: { type: String, required: true },
   techStack: { type: [String], default: [] },
   githubLink: { type: String, default: '' },
+  liveLink: { type: String, default: '' },
   image: { type: String, default: 'images/project-placeholder.png' }
 }, { timestamps: true });
 
@@ -116,6 +121,7 @@ app.post('/api/admin/seed', requireAdminAuth, async (req, res) => {
         description: 'Android application for managing tailor-customer interactions with real-time updates and order tracking.',
         techStack: ['Kotlin', 'Firebase', 'Android Studio'],
         githubLink: 'https://github.com/lakshmi9743/tailorservice.git',
+        liveLink: '',
         image: 'images/tailor-app.jpg'
       },
       {
@@ -123,6 +129,7 @@ app.post('/api/admin/seed', requireAdminAuth, async (req, res) => {
         description: 'Web-based system providing a transparent bridge between users and administrative departments for efficient complaint management.',
         techStack: ['MVC Architecture', 'C#.NET', 'MySQL'],
         githubLink: '',
+        liveLink: '',
         image: 'images/grievance-tracker.png'
       },
       {
@@ -130,6 +137,7 @@ app.post('/api/admin/seed', requireAdminAuth, async (req, res) => {
         description: 'Interactive quiz platform with user authentication, dynamic question management, and real-time score tracking.',
         techStack: ['PHP', 'MySQL', 'HTML/CSS', 'JavaScript'],
         githubLink: '',
+        liveLink: '',
         image: 'images/quiz-website.png'
       },
       {
@@ -137,6 +145,7 @@ app.post('/api/admin/seed', requireAdminAuth, async (req, res) => {
         description: 'Engaging puzzle game with dynamic difficulty levels and cloud-based leaderboard integration.',
         techStack: ['Firebase', 'Game Development', 'Cloud Services'],
         githubLink: '',
+        liveLink: '',
         image: 'images/game.png'
       }
     ];
@@ -178,7 +187,7 @@ app.post('/api/contact', async (req, res) => {
 
 app.post('/api/projects', requireAdminAuth, async (req, res) => {
   try {
-    const { title, description, techStack, githubLink, image } = req.body;
+    const { title, description, techStack, githubLink, liveLink, image } = req.body;
     if (!title || !description) {
       return res.status(400).json({ message: 'Title and description are required.' });
     }
@@ -192,6 +201,7 @@ app.post('/api/projects', requireAdminAuth, async (req, res) => {
       description,
       techStack: techArray,
       githubLink: githubLink || '',
+      liveLink: liveLink || '',
       image: image ? String(image).replace(/^\//, '') : 'images/project-placeholder.png'
     });
 
@@ -204,7 +214,7 @@ app.post('/api/projects', requireAdminAuth, async (req, res) => {
 
 app.put('/api/projects/:id', requireAdminAuth, async (req, res) => {
   try {
-    const { title, description, techStack, githubLink, image } = req.body;
+    const { title, description, techStack, githubLink, liveLink, image } = req.body;
     if (!title || !description) {
       return res.status(400).json({ message: 'Title and description are required.' });
     }
@@ -218,6 +228,7 @@ app.put('/api/projects/:id', requireAdminAuth, async (req, res) => {
       description,
       techStack: techArray,
       githubLink: githubLink || '',
+      liveLink: liveLink || '',
       image: image ? String(image).replace(/^\//, '') : 'images/project-placeholder.png'
     };
 

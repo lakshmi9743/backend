@@ -99,7 +99,7 @@ function renderAdminProjects(projects) {
       : '';
 
     return `
-      <div class="project-card admin-card" data-id="${escapeHtml(project._id)}" data-github="${escapeHtml(project.githubLink || '')}" data-image="${escapeHtml(project.image || 'images/project-placeholder.png')}">
+      <div class="project-card admin-card" data-id="${escapeHtml(project._id)}" data-github="${escapeHtml(project.githubLink || '')}" data-live="${escapeHtml(project.liveLink || '')}" data-image="${escapeHtml(project.image || 'images/project-placeholder.png')}">
         <img src="${escapeHtml(project.image || 'images/project-placeholder.png')}" alt="${escapeHtml(project.title)}" class="project-image">
         <h3>${escapeHtml(project.title)}</h3>
         <p>${escapeHtml(project.description)}</p>
@@ -119,6 +119,7 @@ function startEditProject(project) {
   document.getElementById('projectDescription').value = project.description;
   document.getElementById('projectTech').value = Array.isArray(project.techStack) ? project.techStack.join(', ') : project.techStack;
   document.getElementById('projectGithub').value = project.githubLink || '';
+  document.getElementById('projectLive').value = project.liveLink || '';
   document.getElementById('projectImage').value = project.image || '';
   projectSubmitButton.textContent = 'Save Changes';
   projectCancelButton.classList.remove('hidden');
@@ -210,6 +211,7 @@ async function saveProject(event) {
   const description = document.getElementById('projectDescription').value.trim();
   const techStack = document.getElementById('projectTech').value.trim();
   const githubLink = document.getElementById('projectGithub').value.trim();
+  const liveLink = document.getElementById('projectLive').value.trim();
   const image = document.getElementById('projectImage').value.trim();
 
   if (!title || !description || !techStack) {
@@ -226,7 +228,7 @@ async function saveProject(event) {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${adminToken}`
       },
-      body: JSON.stringify({ title, description, techStack, githubLink, image })
+      body: JSON.stringify({ title, description, techStack, githubLink, liveLink, image })
     });
 
     if (!response.ok) {
@@ -257,8 +259,9 @@ function attachAdminHandlers() {
       const description = card.querySelector('p').textContent;
       const techStack = Array.from(card.querySelectorAll('.tech')).map(el => el.textContent).join(', ');
       const githubLink = card.dataset.github || '';
+      const liveLink = card.dataset.live || '';
       const image = card.dataset.image || '';
-      startEditProject({ _id: id, title, description, techStack, githubLink, image });
+      startEditProject({ _id: id, title, description, techStack, githubLink, liveLink, image });
     }
 
     if (target.classList.contains('delete-project')) {
@@ -296,13 +299,20 @@ async function loadProjects() {
         ? `<a href="${escapeHtml(project.githubLink)}" class="project-link" target="_blank" rel="noopener">GitHub Repository</a>`
         : '';
 
+      const liveLink = project.liveLink
+        ? `<a href="${escapeHtml(project.liveLink)}" class="project-link live-link" target="_blank" rel="noopener">Live Demo</a>`
+        : '';
+
       return `
         <div class="project-card">
           <img src="${escapeHtml(project.image || 'images/project-placeholder.png')}" alt="${escapeHtml(project.title)}" class="project-image">
           <h3>${escapeHtml(project.title)}</h3>
           <p>${escapeHtml(project.description)}</p>
           <div class="tech-stack">${techTags}</div>
-          ${githubLink}
+          <div class="project-links">
+            ${githubLink}
+            ${liveLink}
+          </div>
         </div>
       `;
     }).join('');
