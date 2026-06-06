@@ -73,12 +73,28 @@ async function sendContactMessage(event) {
   }
 
   try {
-    const response = await fetch('/api/contact', {
+    // Send a backup copy to your database
+    fetch('/api/contact', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ name, email, subject, message })
+    }).catch(err => console.warn('Local database logging failed:', err));
+
+    // Send the email directly to your inbox via FormSubmit
+    const response = await fetch('https://formsubmit.co/ajax/mahalakshmiv088@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        _subject: `Portfolio Contact: ${subject}`,
+        message: message
+      })
     });
 
     if (!response.ok) throw new Error('Failed to submit contact form.');
