@@ -300,7 +300,7 @@ async function loadProjects() {
         : '';
 
       const liveLink = project.liveLink
-        ? `<a href="${escapeHtml(project.liveLink)}" class="project-link live-link" target="_blank" rel="noopener">Live Demo</a>`
+        ? `<a href="${escapeHtml(project.liveLink)}" class="project-link live-link" target="_blank" rel="noopener">Live App</a>`
         : '';
 
       return `
