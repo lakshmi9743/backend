@@ -16,7 +16,50 @@ app.use(cors());
 app.use(express.json());
 
 mongoose.connect(MONGODB_URI)
-  .then(() => console.log('📡 Connected to MongoDB'))
+  .then(async () => {
+    console.log('📡 Connected to MongoDB');
+    try {
+      // Auto-seed default projects if the collection is empty
+      const count = await Project.countDocuments();
+      if (count === 0) {
+        console.log('🌱 Projects collection is empty. Autoseeding default projects...');
+        const defaultProjects = [
+          {
+            title: 'Tailor Service Management App',
+            description: 'Android application for managing tailor-customer interactions with real-time updates and order tracking.',
+            techStack: ['Kotlin', 'Firebase', 'Android Studio'],
+            githubLink: 'https://github.com/lakshmi9743/tailorservice.git',
+            image: 'images/tailor-app.jpg'
+          },
+          {
+            title: 'Grievance Tracker',
+            description: 'Web-based system providing a transparent bridge between users and administrative departments for efficient complaint management.',
+            techStack: ['MVC Architecture', 'C#.NET', 'MySQL'],
+            githubLink: '',
+            image: 'images/grievance-tracker.png'
+          },
+          {
+            title: 'Quiz Website',
+            description: 'Interactive quiz platform with user authentication, dynamic question management, and real-time score tracking.',
+            techStack: ['PHP', 'MySQL', 'HTML/CSS', 'JavaScript'],
+            githubLink: '',
+            image: 'images/quiz-website.png'
+          },
+          {
+            title: 'Puzzle Game',
+            description: 'Engaging puzzle game with dynamic difficulty levels and cloud-based leaderboard integration.',
+            techStack: ['Firebase', 'Game Development', 'Cloud Services'],
+            githubLink: '',
+            image: 'images/game.png'
+          }
+        ];
+        await Project.insertMany(defaultProjects);
+        console.log('✅ Autoseeding complete.');
+      }
+    } catch (err) {
+      console.error('❌ Autoseeding failed:', err);
+    }
+  })
   .catch(err => console.error('❌ MongoDB connection error:', err));
 
 const projectSchema = new mongoose.Schema({
