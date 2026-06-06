@@ -163,6 +163,16 @@ app.post('/api/admin/seed', requireAdminAuth, async (req, res) => {
 app.get('/api/projects', async (req, res) => {
   try {
     const projects = await Project.find().sort({ createdAt: -1 });
+
+    // Sort projects so that those with a GitHub link appear first
+    projects.sort((a, b) => {
+      const hasA = a.githubLink && a.githubLink.trim() !== '';
+      const hasB = b.githubLink && b.githubLink.trim() !== '';
+      if (hasA && !hasB) return -1;
+      if (!hasA && hasB) return 1;
+      return 0; // Maintain createdAt sorting within groups
+    });
+
     res.json(projects);
   } catch (err) {
     res.status(500).json({ message: err.message });
