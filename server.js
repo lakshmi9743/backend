@@ -1,4 +1,4 @@
-﻿const path = require('path');
+const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -64,6 +64,49 @@ app.post('/api/admin/login', (req, res) => {
 app.get('/api/admin/validate', requireAdminAuth, (req, res) => {
   res.json({ valid: true });
 });
+
+app.post('/api/admin/seed', requireAdminAuth, async (req, res) => {
+  try {
+    const projects = [
+      {
+        title: 'Tailor Service Management App',
+        description: 'Android application for managing tailor-customer interactions with real-time updates and order tracking.',
+        techStack: ['Kotlin', 'Firebase', 'Android Studio'],
+        githubLink: 'https://github.com/lakshmi9743/tailorservice.git',
+        image: 'images/tailor-app.jpg'
+      },
+      {
+        title: 'Grievance Tracker',
+        description: 'Web-based system providing a transparent bridge between users and administrative departments for efficient complaint management.',
+        techStack: ['MVC Architecture', 'C#.NET', 'MySQL'],
+        githubLink: '',
+        image: 'images/grievance-tracker.png'
+      },
+      {
+        title: 'Quiz Website',
+        description: 'Interactive quiz platform with user authentication, dynamic question management, and real-time score tracking.',
+        techStack: ['PHP', 'MySQL', 'HTML/CSS', 'JavaScript'],
+        githubLink: '',
+        image: 'images/quiz-website.png'
+      },
+      {
+        title: 'Puzzle Game',
+        description: 'Engaging puzzle game with dynamic difficulty levels and cloud-based leaderboard integration.',
+        techStack: ['Firebase', 'Game Development', 'Cloud Services'],
+        githubLink: '',
+        image: 'images/game.png'
+      }
+    ];
+
+    await Project.deleteMany({});
+    await Project.insertMany(projects);
+
+    res.json({ message: 'Database seeded successfully with original projects!' });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 
 app.get('/api/projects', async (req, res) => {
   try {

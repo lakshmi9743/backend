@@ -1,14 +1,11 @@
-﻿const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
 dotenv.config();
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/portfolio';
 
-mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
+mongoose.connect(MONGODB_URI)
   .then(async () => {
     console.log('🔥 Connected to MongoDB. Seeding project data...');
 

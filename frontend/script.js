@@ -1,4 +1,4 @@
-﻿const sections = document.querySelectorAll("section");
+const sections = document.querySelectorAll("section");
 const navLi = document.querySelectorAll(".nav-links li a");
 const buttonTabs = document.querySelectorAll(".tab-btn");
 const tabPanes = document.querySelectorAll(".tab-pane");
@@ -8,6 +8,7 @@ const contactForm = document.getElementById("contactForm");
 const projectForm = document.getElementById("projectForm");
 const projectSubmitButton = document.getElementById('projectSubmitButton');
 const projectCancelButton = document.getElementById('projectCancelButton');
+const seedDatabaseButton = document.getElementById('seedDatabaseButton');
 const adminLoginForm = document.getElementById('adminLoginForm');
 const adminPasswordInput = document.getElementById('adminPassword');
 const adminLoginStatus = document.getElementById('adminLoginStatus');
@@ -343,9 +344,35 @@ async function adminLogin(event) {
   }
 }
 
+async function seedDatabase() {
+  if (!confirm('Are you sure you want to reset the database to the 4 default projects? (This will overwrite your current live projects)')) return;
+
+  try {
+    const response = await fetch('/api/admin/seed', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${adminToken}`
+      }
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || 'Failed to seed database.');
+    }
+
+    alert('Database successfully reset to the 4 default projects!');
+    resetProjectForm();
+    loadProjects();
+  } catch (error) {
+    console.error('Database seeding failed:', error);
+    alert('Unable to reset database right now. Please try again later.');
+  }
+}
+
 attachAdminHandlers();
 validateAdminToken().then(loadProjects);
 if (contactForm) contactForm.addEventListener('submit', sendContactMessage);
 if (projectForm) projectForm.addEventListener('submit', saveProject);
 if (projectCancelButton) projectCancelButton.addEventListener('click', resetProjectForm);
+if (seedDatabaseButton) seedDatabaseButton.addEventListener('click', seedDatabase);
 if (adminLoginForm) adminLoginForm.addEventListener('submit', adminLogin);
