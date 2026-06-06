@@ -360,6 +360,17 @@ h2::after {
 .tech.firebase-studio { background: linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(251, 146, 60, 0.2)); color: #f97316; border-color: rgba(249, 115, 22, 0.3); }
 .tech.game-dev { background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(248, 113, 113, 0.2)); color: #ef4444; border-color: rgba(239, 68, 68, 0.3); }
 .tech.cloud { background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(96, 165, 250, 0.2)); color: #3b82f6; border-color: rgba(59, 130, 246, 0.3); }
+.tech.react, .tech.react-v19 { background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(8, 145, 178, 0.2)); color: #06b6d4; border-color: rgba(6, 182, 212, 0.3); }
+.tech.vite { background: linear-gradient(135deg, rgba(234, 179, 8, 0.2), rgba(245, 158, 11, 0.2)); color: #eab308; border-color: rgba(234, 179, 8, 0.3); }
+.tech.css-variables { background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(147, 51, 234, 0.2)); color: #3b82f6; border-color: rgba(59, 130, 246, 0.3); }
+.tech.glassmorphism { background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(219, 39, 119, 0.2)); color: #ec4899; border-color: rgba(236, 72, 153, 0.3); }
+.tech.web-audio-api { background: linear-gradient(135deg, rgba(244, 63, 94, 0.2), rgba(225, 29, 72, 0.2)); color: #f43f5e; border-color: rgba(244, 63, 94, 0.3); }
+.tech.localstorage { background: linear-gradient(135deg, rgba(217, 119, 6, 0.2), rgba(180, 83, 9, 0.2)); color: #d97706; border-color: rgba(217, 119, 6, 0.3); }
+.tech.node-js { background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(74, 222, 128, 0.2)); color: #22c55e; border-color: rgba(34, 197, 94, 0.3); }
+.tech.express { background: linear-gradient(135deg, rgba(148, 163, 184, 0.2), rgba(203, 213, 225, 0.2)); color: #94a3b8; border-color: rgba(148, 163, 184, 0.3); }
+.tech.mongodb { background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2)); color: #10b981; border-color: rgba(16, 185, 129, 0.3); }
+.tech.stripe-api { background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(129, 140, 248, 0.2)); color: #6366f1; border-color: rgba(99, 102, 241, 0.3); }
+.tech.tailwind-css { background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(56, 189, 248, 0.2)); color: #0ea5e9; border-color: rgba(14, 165, 233, 0.3); }
 
 /* Certifications */
 .cert-list {
