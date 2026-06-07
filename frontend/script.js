@@ -16,7 +16,7 @@ const adminSection = document.getElementById('admin');
 const adminLoginSection = document.getElementById('adminLogin');
 let editingProjectId = null;
 let adminHandlersAttached = false;
-let adminToken = localStorage.getItem('adminToken') || null;
+let adminToken = sessionStorage.getItem('adminToken') || null;
 
 window.addEventListener("scroll", () => {
   let current = "";
@@ -146,7 +146,7 @@ function startEditProject(project) {
 
 function setAdminToken(token) {
   adminToken = token;
-  localStorage.setItem('adminToken', token);
+  sessionStorage.setItem('adminToken', token);
 }
 
 function showAdminSection() {
@@ -181,7 +181,7 @@ async function validateAdminToken() {
     });
 
     if (!response.ok) {
-      localStorage.removeItem('adminToken');
+      sessionStorage.removeItem('adminToken');
       adminToken = null;
       showAdminLogin();
       return;
@@ -189,7 +189,7 @@ async function validateAdminToken() {
 
     showAdminSection();
   } catch (error) {
-    localStorage.removeItem('adminToken');
+    sessionStorage.removeItem('adminToken');
     adminToken = null;
     showAdminLogin();
   }
